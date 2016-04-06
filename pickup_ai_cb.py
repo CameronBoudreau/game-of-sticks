@@ -6,7 +6,9 @@ import random
 
 class AIGame():
 
-    self.ai_dict = self.create_ai_dict(self.ai_dict)
+    def __init__(self):
+        self.ai_dict = {}
+        self.ai_dict = self.create_ai_dict()
 
     def print_text(self, a_string, a_is_slow):
         if a_is_slow:
@@ -107,7 +109,7 @@ class AIGame():
             if len(self.ai_dict[i]) > 3:
                 self.ai_dict[i].remove(self.ai_round_picks[i])
 
-    def create_ai_dict(self, ai_dict):
+    def create_ai_dict(self):
         for i in range(1,100):
             self.ai_dict[i] = [1,2,3]
         return self.ai_dict
@@ -119,32 +121,19 @@ class AIGame():
         else:
             return 1
 
-    # def ai_turn(self, ai_round_picks, stick_count, turn_counter):
-    #     self.pickup = self.ai_gets_amount_to_pickup()
-    #     self.ai_round_picks[turn_counter].append[pickup]
-    #     self.stick_count = self.stick_count - self.pickup
-    #
-    #     return self.stick_count
-
-    # def add_to_round_picks(self, ai_round_picks, pickup, turn_counter):
-    #     self.ai_round_picks.setdefaultkey(turn_counter, [])
-    #     self.ai_round_picks[turn_counter].append(pickup)
-    #
-    #     return self.ai_round_picks
 
 
-    def run_game(self, ai_dict={}):
+    def run_game(self):
         self.clear()
         self.stick_count = self.choose_stick_count()
         self.turn_counter = 1
 
-        self.ai_dict = self.create_ai_dict(self.ai_dict)
         self.ai_round_picks = {}
 
         print("dict at start: ", self.ai_dict)
 
         while True:
-            # self.clear()
+            self.clear()
             print("\nStart of turn {}.\n".format(self.turn_counter))
             if self.turn_is_odd(self.turn_counter):
                 print("You're up player one!")
@@ -156,9 +145,13 @@ class AIGame():
                 self.print_text(".\n.\n.\n.\n.\n.\n.", True)
 
                 self.pickup = self.ai_gets_amount_to_pickup(self.ai_dict, self.turn_counter)
+
                 print("\nPickup amount :", self.pickup, "\n\nTurn counter :", self.turn_counter, "\n\nRound pick dict before addition:", self.ai_round_picks)
+
                 self.ai_round_picks[self.stick_count] = self.pickup
+
                 print("\nAI Round pick dictionary after :", self.ai_round_picks)
+
                 self.stick_count = self.stick_count - self.pickup
                 print("\nStick count after AI turn :", self.stick_count)
 
@@ -172,5 +165,5 @@ class AIGame():
             print("\nEnd of turn. Turn counter :\n", self.turn_counter)
 
         if self.go_again():
-            self.run_game(self.ai_dict)
+            self.run_game()
         self.clear()
