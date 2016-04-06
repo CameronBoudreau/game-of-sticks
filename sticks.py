@@ -1,14 +1,13 @@
 import os
 from pickup_pvp_updated import *
-from pickup_ai_cb import *
 
 
 def main():
     turn_counter = 1
     pvp = PvPGame()
-    pve = AIGame()
-
+    # pve = AIGame()
     # pve.run_game() <---Not quite working, but it's so close!
+
     pvp.run_game()
 
 

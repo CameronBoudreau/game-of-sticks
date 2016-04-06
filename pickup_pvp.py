@@ -102,5 +102,5 @@ class PvPGame():
             self.turn_counter += 1
 
         if self.go_again():
-            self.main()
+            self.run_game()
         self.clear()

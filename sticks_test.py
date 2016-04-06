@@ -1,6 +1,7 @@
 import unittest
 from pickup_pvp import *
 
+###This works with functions when not in a class. Didn't have time to figure out how to test in a class :(
 
 class TestSticks(unittest.TestCase):
 
