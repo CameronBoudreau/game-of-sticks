@@ -2,6 +2,13 @@ import os
 from pickup_pvp import *
 from pickup_ai_cb import *
 
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
 def choose_game_type():
     choice = input("Would you like to play against another Player(1) or the AI(2)? \n")
     if choice != '1' and choice !='2':
@@ -10,6 +17,7 @@ def choose_game_type():
     return int(choice)
 
 def main():
+    clear()
     turn_counter = 1
     pvp = PvPGame()
     pve = AIGame()
