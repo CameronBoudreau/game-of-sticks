@@ -72,7 +72,6 @@ class PvPGame():
 
         return self.player
 
-
     def run_game(self):
         self.clear()
         self.stick_count = self.choose_stick_count()
