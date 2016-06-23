@@ -14,13 +14,11 @@ class PvPGame():
         else:
             print(a_string)
 
-
     def clear(self):
         if os.name == 'nt':
             os.system('cls')
         else:
             os.system('clear')
-
 
     def choose_stick_count(self):
         self.stick_count = input("How many sticks are there on the table initially?\n>")
@@ -31,10 +29,8 @@ class PvPGame():
 
         return int(self.stick_count)
 
-
     def check_initial_stick_count(self, stick_count):
         return self.stick_count.isnumeric() and int(self.stick_count) in range(10, 101)
-
 
     def get_new_stick_count(self, stick_count):
         self.pickup_amount = self.get_pickup_amount(self.stick_count)
@@ -45,19 +41,16 @@ class PvPGame():
 
         return self.stick_count - int(self.pickup_amount)
 
-
     def get_pickup_amount(self, stick_count):
         if self.stick_count == 1:
-            self.pickup_amount = input("There is 1 stick left. You're so fucked...Go ahead and pick it up, loser.")
+            self.pickup_amount = input("There is 1 stick left. You're so screwed...Go ahead and pick it up, loser.")
         else:
             self.pickup_amount = input("There are {} sticks left. How many would you like to take (1-3)?\n>".format(self.stick_count))
 
         return self.pickup_amount
 
-
     def acceptable_pickup_amount(self, pickup_amount):
         return self.pickup_amount.isnumeric() and int(self.pickup_amount) in range(1, 4)
-
 
     def check_loss(self, stick_count):
         if self.stick_count <= 0:

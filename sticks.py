@@ -2,6 +2,7 @@ import os
 from pickup_pvp import *
 from pickup_ai_cb import *
 
+
 def clear():
     if os.name == 'nt':
         os.system('cls')
